@@ -20,6 +20,12 @@ class Author extends Model
         'name'
     ];
 
+    /**
+     *  Disable timestamps
+     * @var bool
+     */
+    public $timestamps = false;
+
     // ACCESSORS
 
     /**

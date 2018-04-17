@@ -17,6 +17,12 @@ class Genre extends Model
         'title',
     ];
 
+    /**
+     *  Disable timestamps
+     * @var bool
+     */
+    public $timestamps = false;
+
     // HELPERS
 
     /**

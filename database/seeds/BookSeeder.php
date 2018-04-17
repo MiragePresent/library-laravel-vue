@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\Author;
+use App\Models\Book;
 
-class AuthorSeeder extends Seeder
+class BookSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class AuthorSeeder extends Seeder
      */
     public function run()
     {
-        factory(Author::class, 30)->create();
+        factory(Book::class, 100)->create();
     }
 }

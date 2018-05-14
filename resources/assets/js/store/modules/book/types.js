@@ -1,0 +1,12 @@
+export const SET_BOOKS      = 'SET_BOOKS';
+export const SET_AUTHORS    = 'SET_AUTHORS';
+export const SET_GENRES     = 'SET_GENRES';
+export const SET_LANGUAGES  = 'SET_LANGUAGES';
+export const SET_ERRORS     = 'SET_ERRORS';
+export const SET_EDITING_BOOK       = 'SET_EDITING_BOOK';
+export const SET_FORM_VISIBILITY    = 'SET_FORM_VISIBILITY';
+export const SET_RESPONSE_CODE      = 'SET_RESPONSE_CODE';
+export const CLEAR_ERRORS   = 'CLEAR_ERRORS';
+export const CREATE_BOOK    = 'CREATE_BOOK';
+export const UPDATE_BOOK    = 'UPDATE_BOOK';
+export const DELETE_BOOK    = 'DELETE_BOOK';

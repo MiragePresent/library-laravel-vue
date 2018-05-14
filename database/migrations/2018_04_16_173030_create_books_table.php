@@ -33,6 +33,7 @@ class CreateBooksTable extends Migration
             $table->char('isbn', 13)->index();
             $table->string('title');
             $table->char('lang', 2)->index();
+            $table->char('date', 4)->nullable();
 
             $table->timestamps();
         });

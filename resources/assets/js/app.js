@@ -1,3 +1,13 @@
+import Vue from 'vue';
+import Vuetify from 'vuetify';
+import Notifications from 'vue-notification';
+
+// Store
+import store from './store';
+
+
+// Components
+import BooksTable from './components/BooksTable';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -5,9 +15,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-
-window.Vue = require('vue');
+window.Vue = Vue;
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,8 +23,17 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.use(Vuetify);
+Vue.use(Notifications);
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    store,
+    components: {
+        BooksTable,
+    }
 });
+
+window.onload = () => {
+    app.$mount('#app');
+};

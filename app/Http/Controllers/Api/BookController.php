@@ -11,9 +11,7 @@ class BookController extends Controller
 {
     public function index()
     {
-        return Book::ordered()
-            ->with(['author', 'genre'])
-            ->get();
+        return Book::ordered()->get();
     }
 
     public function store(CreateBookRequest $request)
@@ -29,10 +27,7 @@ class BookController extends Controller
 
     public function show(Book $book)
     {
-        return $book->load([
-            'author',
-            'genre',
-        ]);
+        return $book->toArray();
     }
 
     public function update(UpdateBookRequest $request, Book $book)
@@ -44,10 +39,7 @@ class BookController extends Controller
             'title',
             'lang',
         ]));
-        return $book->load([
-                'author',
-                'genre'
-            ]);
+        return $book->toArray();
 
     }
 

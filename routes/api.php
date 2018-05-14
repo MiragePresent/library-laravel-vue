@@ -16,3 +16,22 @@ use Illuminate\Http\Request;
 Route::apiResources([
     'books' => 'BookController',
 ]);
+
+Route::get('authors', function () {
+    return App\Models\Author::orderBy('name')->get()->toArray();
+});
+Route::get('genres', function () {
+    return App\Models\Genre::orderBy('title')->get()->toArray();
+});
+Route::get('languages', function () {
+    return (new App\Repositories\LanguageRepository)
+        ->all()
+        ->map(function (\App\Entities\LanguageContract $lang) {
+           return [
+               'code'   => $lang->code,
+               'title'  => $lang->title,
+           ];
+        })
+        ->values()
+        ->toArray();
+});

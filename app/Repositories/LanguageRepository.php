@@ -230,7 +230,7 @@ class LanguageRepository implements LanguageRepositoryContract
     public function all(): Collection
     {
         return collect($this->languages)->map(function ($title, $code) {
-            LanguageContract::make($code, $title);
+            return Language::make($code, $title);
         });
     }
 

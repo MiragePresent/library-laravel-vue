@@ -194,6 +194,7 @@
                 }
             },
             processResponse() {
+
                 if (this.responseCode === 201) {
                     // Show creating new book notification
                     this.close();
@@ -213,12 +214,13 @@
                 } else if (this.responseCode === 422) {
                     // trigger validation to displaying backend validation errors
                     this.validate();
-                } else {
+                } else if (this.responseCode > 0) {
                     // internal server error
                     this.$notify({
                         group: 'messages',
                         title: 'Oops...',
-                        text: 'Something went wrong'
+                        text: 'Something went wrong',
+                        type: 'error',
                     });
                 }
             },

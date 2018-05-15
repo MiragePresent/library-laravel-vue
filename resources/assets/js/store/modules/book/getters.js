@@ -7,6 +7,5 @@ export default {
     languages: state => state.languages,
     errors: state => state.errors,
     editingBook: state => state.editingBook,
-    defaultBook: state => state.default,
     formVisibility: state => state.formVisibility,
 };

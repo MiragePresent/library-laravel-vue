@@ -2,7 +2,7 @@
     <v-dialog
         id="dialog"
         :value="formVisibility"
-        max-width="500px"
+        max-width="700px"
         @input="changeVisibility"
     >
         <v-btn
@@ -34,8 +34,6 @@
                                     @input="clearErrors"
                                     required
                                 />
-                            </v-flex>
-                            <v-flex xs12>
                                 <v-select
                                     label="Author"
                                     v-model="model.author_id"
@@ -47,8 +45,6 @@
                                     autocomplete
                                     required
                                 />
-                            </v-flex>
-                            <v-flex xs12>
                                 <v-select
                                     label="Genre"
                                     v-model="model.genre_id"
@@ -60,8 +56,6 @@
                                     autocomplete
                                     required
                                 />
-                            </v-flex>
-                            <v-flex xs12>
                                 <v-select
                                     label="Language"
                                     v-model="model.lang"
@@ -73,8 +67,6 @@
                                     autocomplete
                                     required
                                 />
-                            </v-flex>
-                            <v-flex xs12>
                                 <v-text-field
                                     label="ISBN"
                                     v-model="model.isbn"
@@ -119,7 +111,6 @@
         computed: {
             ...mapGetters('book', [
                 'books',
-                'defaultBook',
                 'editingBook',
                 'formVisibility',
                 'authors',
@@ -128,7 +119,7 @@
                 'errors',
                 'responseCode',
             ]),
-            header: () =>  this.formItemId ? 'Edit book' : 'Create book',
+            header: () => (this.model && this.model.id) ? 'Edit book' : 'Create book',
         },
         data() {
             return {

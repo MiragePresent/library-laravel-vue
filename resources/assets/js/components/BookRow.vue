@@ -9,7 +9,7 @@
             <v-btn icon class="mx-0" @click="edit">
                 <v-icon color="teal">edit</v-icon>
             </v-btn>
-            <v-btn icon class="mx-0" @click="remove(book.id)">
+            <v-btn icon class="mx-0" @click="remove">
                 <v-icon color="pink">delete</v-icon>
             </v-btn>
         </td>
@@ -63,8 +63,8 @@
                this.setEditing(this.book);
                this.openForm();
             },
-            remove(book_id) {
-                return confirm('Do you really want to delete this book?') && this.destroy(book_id);
+            remove() {
+                return confirm('Do you really want to delete this book?') && this.destroy(this.book.id);
             },
             processResponse() {
                 if (this.responseCode === 204) {

@@ -1,9 +1,9 @@
 <template>
     <tr>
         <td>{{ book.title }}</td>
-        <td class="text-xs-right">{{ authors.find(a => a.id === book.author_id).name || '' }}</td>
-        <td class="text-xs-right">{{ genres.find(g => g.id === book.genre_id).title || '' }}</td>
-        <td class="text-xs-right">{{ languages.find(l => l.code === book.lang).title || '' }}</td>
+        <td class="text-xs-right">{{ author }}</td>
+        <td class="text-xs-right">{{ genre }}</td>
+        <td class="text-xs-right">{{ language }}</td>
         <td class="text-xs-right">{{ book.isbn }}</td>
         <td class="justify-center layout px-0">
             <v-btn icon class="mx-0" @click="edit">
@@ -43,6 +43,15 @@
                 'defaultBook',
                 'responseCode',
             ]),
+            author() {
+                return this.authors.find(a => a.id === this.book.author_id).name || '';
+            },
+            genre() {
+                return this.genres.find(g => g.id === this.book.genre_id).title || '';
+            },
+            language() {
+                return this.languages.find(l => l.code === this.book.lang).title || '';
+            },
         },
         methods: {
             ...mapActions('book', [

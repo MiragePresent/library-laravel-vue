@@ -57,7 +57,8 @@
             ...mapActions('book', [
                 'setEditing',
                 'openForm',
-                'destroy'
+                'destroy',
+                'clearRequestStatus',
             ]),
             edit() {
                this.setEditing(this.book);
@@ -73,6 +74,7 @@
                         title: 'Success!',
                         text: 'Book has been removed',
                     });
+                    this.clearRequestStatus();
                 }
             }
         },

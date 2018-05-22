@@ -194,34 +194,35 @@
                 }
             },
             processResponse() {
-
-                if (this.responseCode === 201) {
-                    // Show creating new book notification
-                    this.close();
-                    this.$notify({
-                        group: 'messages',
-                        title: 'Success!',
-                        text: 'Book has been successfully created',
-                    });
-                } else if (this.responseCode === 200) {
-                    // Show updating book notification
-                    this.close();
-                    this.$notify({
-                        group: 'messages',
-                        title: 'Success!',
-                        text: 'Book has been successfully updated',
-                    });
-                } else if (this.responseCode === 422) {
-                    // trigger validation to displaying backend validation errors
-                    this.validate();
-                } else if (this.responseCode > 0) {
-                    // internal server error
-                    this.$notify({
-                        group: 'messages',
-                        title: 'Oops...',
-                        text: 'Something went wrong',
-                        type: 'error',
-                    });
+                if (this.responseCode !== null) {
+                    if (this.responseCode === 201) {
+                        // Show creating new book notification
+                        this.close();
+                        this.$notify({
+                            group: 'messages',
+                            title: 'Success!',
+                            text: 'Book has been successfully created',
+                        });
+                    } else if (this.responseCode === 200) {
+                        // Show updating book notification
+                        this.close();
+                        this.$notify({
+                            group: 'messages',
+                            title: 'Success!',
+                            text: 'Book has been successfully updated',
+                        });
+                    } else if (this.responseCode === 422) {
+                        // trigger validation to displaying backend validation errors
+                        this.validate();
+                    } else if (this.responseCode < 200 || this.responseCode > 299) {
+                        // internal server error
+                        this.$notify({
+                            group: 'messages',
+                            title: 'Oops...',
+                            text: 'Something went wrong',
+                            type: 'error',
+                        });
+                    }
                 }
             },
             open() {

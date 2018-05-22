@@ -106,6 +106,9 @@ export default {
                 console.warn('Book has not been removed');
             })
     },
+    clearRequestStatus({ commit }) {
+        commit(SET_RESPONSE_CODE, null);
+    },
     clearErrors({ commit }) {
         commit(CLEAR_ERRORS);
     },

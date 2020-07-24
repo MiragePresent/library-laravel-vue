@@ -7,3 +7,7 @@
 * Compile js files `npm run dev`
 * And run application server `php atisan serve`
 * Open [application](http://127.0.0.1:8000)
+
+## Run with Docker
+* `docker-compose up --build`
+* `docker-compose exec backend php artisan migrate --seed`

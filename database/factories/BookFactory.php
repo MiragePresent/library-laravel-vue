@@ -25,7 +25,7 @@ $factory->define(Book::class, function (Faker $faker) use ($langRepository) {
             return factory(Genre::class)->create()->id;
         },
         'isbn' => $faker->unique()->isbn13,
-        'title' => $faker->sentence(rand(1, 6)),
+        'title' => $faker->sentence,
         'lang' => $langRepository->random()->code,
     ];
 });

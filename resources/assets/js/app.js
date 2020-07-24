@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import Notifications from 'vue-notification';
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 // Store
 import store from './store';
@@ -25,7 +26,6 @@ window.Vue = Vue;
 
 Vue.use(Vuetify);
 Vue.use(Notifications);
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
     store,

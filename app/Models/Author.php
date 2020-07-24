@@ -35,7 +35,7 @@ class Author extends Model
     public function getShortNameAttribute($name)
     {
         return collect(explode(' ', $name))->map(function ($name_part, $index) {
-            return !$index ?  $name_part : strtoupper($name_part{0});
+            return !$index ?  $name_part : strtoupper($name_part[0]);
         })->implode(' ');
     }
 }
